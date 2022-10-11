@@ -12,92 +12,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/bSend"
-                    android:layout_width="53dp"
-                    android:layout_height="47dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Send"
-                    android:textSize="7dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
-
-                <Button
-                    android:id="@+id/bSend2"
-                    android:layout_width="53dp"
-                    android:layout_height="47dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Send"
-                    android:visibility="gone"
-                    android:textSize="7dp"
-                    android:backgroundTint="@color/green"
-                    app:layout_constraintBottom_toBottomOf="@+id/bt2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/bt2" />
-
-                <Button
-                    android:id="@+id/bSend3"
-                    android:layout_width="53dp"
-                    android:layout_height="47dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="Send"
-                    android:visibility="gone"
-                    android:textSize="7dp"
-                    android:backgroundTint="@color/lgh_green"
-                    app:layout_constraintBottom_toBottomOf="@+id/bt"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/bt" />
-
-                <Button
-                    android:id="@+id/bSend4"
-                    android:layout_width="53dp"
-                    android:layout_height="47dp"
-                    android:backgroundTint="@color/yellow"
-                    android:layout_marginEnd="8dp"
-                    android:text="Send"
-                    android:visibility="gone"
-                    android:textSize="7dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3" />
-
-                <Button
-                    android:id="@+id/bSend5"
-                    android:layout_width="53dp"
-                    android:layout_height="47dp"
-                    android:visibility="gone"
-                    android:layout_marginEnd="8dp"
-                    android:backgroundTint="@color/orange"
-                    android:text="Send"
-                    android:textSize="7dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName4"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName4" />
-
-                <EditText
-                    android:id="@+id/edMessage"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/message"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/dark"
-                    android:textColorHint="@color/purple_501"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toTopOf="@+id/bSend"
-                    app:layout_constraintEnd_toEndOf="@+id/bSend"
-                    app:layout_constraintStart_toStartOf="@+id/bSend"
-                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
-                    tools:ignore="TouchTargetSizeCheck" />
-
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcView"
                     android:layout_width="match_parent"
                     android:visibility="gone"
                     android:layout_height="0dp"
                     android:layout_marginBottom="100dp"
-                    app:layout_constraintBottom_toTopOf="@+id/edMessage"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -124,27 +44,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/cheer" />
-
-                <Button
-                    android:id="@+id/editTextTextPersonName5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="40dp"
-                    android:backgroundTint="@color/dark_pink"
-                    android:ems="10"
-                    android:gravity="center"
-                    android:text="Сгенерировать QR-код"
-                    android:textColorHint="@color/white"
-                    android:textSize="25dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-
 
                 <TextView
                     android:id="@+id/textView3"
