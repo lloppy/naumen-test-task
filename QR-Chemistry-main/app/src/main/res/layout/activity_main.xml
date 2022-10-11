@@ -27,7 +27,7 @@
                     android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginEnd="20dp"
                     android:backgroundTint="@color/blue"
                     android:text="Сканировать вишлист друга"
@@ -40,31 +40,25 @@
                     android:id="@+id/imageView3"
                     android:layout_width="0dp"
                     android:layout_height="383dp"
+                    android:layout_marginTop="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/cheer" />
 
-                <TextView
+                <Button
                     android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="120dp"
-                    android:gravity="center"
-                    android:text="Мой вишлист:"
-                    android:textColor="@color/dark"
-                    android:textSize="20dp"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/purple_200"
+                    android:text="Мой вишлист"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/button" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="0dp"
-                    android:layout_height="464dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/back" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

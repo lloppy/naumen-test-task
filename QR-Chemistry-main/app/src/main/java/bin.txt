@@ -5,3 +5,29 @@
         myRef.child(myRef.push().key ?: "blablabla").setValue(User(auth.currentUser?.displayName, binding.edMessage.text.toString()))
         onCangeListener(myRef)
         initRcView()
+
+
+
+
+    private fun loadData(linkInput: EditText, nameInput: EditText, priceInput: EditText ) {
+        val database2 = Firebase.database
+        val myRef2 = database2.getReference(name)
+//        linkInput.text = Editable.Factory.getInstance().newEditable(myRef2.toString())
+        arr = listOf<String>()
+        myRef2.get().addOnSuccessListener {
+            val map = (it.value as Map<String, Objects>)
+            for (entry in map.entries) {
+                var eMap = entry.value as Map<String, Objects>
+                var entr = eMap.entries as Set
+
+                var link = entr.elementAt(1).toString().replace("link=", "", true)
+                var price = entr.first().toString().replace("price=", "", true)
+                var nammed = entr.last().toString().replace("name=", "", true)
+
+//                linkInput.text = Editable.Factory.getInstance().newEditable(link.toString())
+//                nameInput.text = Editable.Factory.getInstance().newEditable(price.toString())
+//                priceInput.text = Editable.Factory.getInstance().newEditable(nammed.toString())
+
+                data.add(Item(link, price + " руб", nammed.toString()))
+
+            }

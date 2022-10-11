@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.os.Message
+import android.text.Editable
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
@@ -22,6 +24,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ItemActivity : AppCompatActivity(){
     lateinit var data: ArrayList<Item>
@@ -33,7 +37,6 @@ class ItemActivity : AppCompatActivity(){
 
     lateinit var database: FirebaseDatabase
     lateinit var myRef: DatabaseReference
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,25 +58,37 @@ class ItemActivity : AppCompatActivity(){
         wishRv.layoutManager = LinearLayoutManager(this)
 
         button.setOnClickListener {
-            data.add(Item(nameInput.text.toString(), priceInput.text.toString(), linkInput.text.toString()))
+            data.add(Item(nameInput.text.toString(), priceInput.text.toString() + " руб", linkInput.text.toString()))
             adapter.notifyItemInserted(index)
 
             index++
 
             database = Firebase.database
-            myRef = database.getReference("points")
+            myRef = database.getReference(name)
             myRef.child(myRef.push().key ?: "blablabla")
                 .setValue(Item(nameInput.text.toString(), priceInput.text.toString(), linkInput.text.toString()))
 
-
-            button.isInvisible = true
+//            if (index >= 5) {
+//                button.isInvisible = true
+//                Toast.makeText(
+//                    this,
+//                    "Вишлист составлен",
+//                    Toast.LENGTH_LONG
+//                ).show()
+//            }
+            
             Toast.makeText(
                 this,
-                "Вишлист составлен",
+                "Добавлено",
                 Toast.LENGTH_LONG
             ).show()
 
-
+            clearEditText(nameInput)
+            clearEditText(priceInput)
+            clearEditText(linkInput)
         }
+    }
+    private fun clearEditText(edMessage: EditText) {
+        edMessage.setText("")
     }
 }
