@@ -18,6 +18,9 @@
             android:name=".StartFourActivity"
             android:exported="false" />
         <activity
+            android:name=".ItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".StartThirdActivity"
             android:exported="false" />
         <activity

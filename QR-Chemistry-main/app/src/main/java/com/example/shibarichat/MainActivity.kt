@@ -64,14 +64,20 @@ class MainActivity : AppCompatActivity() {
         name = auth.currentUser!!.displayName.toString()
         setUpActBar()
 
+        val send = binding.textView3
+        send.setOnClickListener {
+            val intent = Intent(this, ItemActivity::class.java)
+            startActivity(intent)
+        }
+
+
+/*
         val send = binding.bSend
         val send2 = binding.bSend2
         val send3 = binding.bSend3
         val send4 = binding.bSend4
         val send5 = binding.bSend5
         val send6 = binding.editTextTextPersonName5
-
-
 
         send.setOnClickListener {
 
@@ -126,7 +132,7 @@ class MainActivity : AppCompatActivity() {
             database = Firebase.database
             myRef = database.getReference("points")
             myRef.child(myRef.push().key ?: "blablabla")
-                .setValue(Points(name, ansa, ansb, ansc, ansd, anse, mark))
+                .setValue(Item(name, ansa, ansb, ansc, ansd, anse, mark))
 
             binding.editTextTextPersonName4.hint = "Задание выполнено"
             binding.editTextTextPersonName4.setText("")
@@ -135,7 +141,7 @@ class MainActivity : AppCompatActivity() {
             send5.isInvisible = true
             Toast.makeText(
                 this,
-                "Ты выполнил все задания по QR-кодам! Твои результаты уже на базе данных",
+                "Вишлист составлен",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -148,7 +154,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_LONG
                 ).show()
             }
-        }
+        }*/
 
         var bScanner: Button? = null
         bScanner = findViewById(R.id.button) as Button

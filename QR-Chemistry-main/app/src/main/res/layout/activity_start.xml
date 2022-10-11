@@ -27,7 +27,7 @@
         android:layout_marginBottom="90dp"
         android:text="Далее"
         android:textStyle="bold"
-        android:textColor="@color/dark"
+        android:textColor="@color/white"
         android:backgroundTint="#7D79FF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
