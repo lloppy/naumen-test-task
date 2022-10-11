@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">5ка по химии</string>
+    <string name="message">Message</string>
+    <string name="first">Подарки должны быть полезными</string>
+    <string name="second">Собирай свой вишлист...</string>
+    <string name="third">... и делись им с друзьями</string>
+    <string name="four">С qr-кодом всё ещё проще!</string>
+    <string name="sign">Чтобы продолжить, войдите в систему</string>
+    <string name="msg">Для корректной работы приложения необходимо дать разрешение на использование камеры</string>
+    <string name="hint">название или ссылка </string>
+</resources>

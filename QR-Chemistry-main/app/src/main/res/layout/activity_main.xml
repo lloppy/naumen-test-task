@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    tools:context=".MainActivity">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/bSend"
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Send"
+                    android:textSize="7dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2" />
+
+                <Button
+                    android:id="@+id/bSend2"
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Send"
+                    android:visibility="gone"
+                    android:textSize="7dp"
+                    android:backgroundTint="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@+id/bt2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/bt2" />
+
+                <Button
+                    android:id="@+id/bSend3"
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="Send"
+                    android:visibility="gone"
+                    android:textSize="7dp"
+                    android:backgroundTint="@color/lgh_green"
+                    app:layout_constraintBottom_toBottomOf="@+id/bt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/bt" />
+
+                <Button
+                    android:id="@+id/bSend4"
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
+                    android:backgroundTint="@color/yellow"
+                    android:layout_marginEnd="8dp"
+                    android:text="Send"
+                    android:visibility="gone"
+                    android:textSize="7dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName3" />
+
+                <Button
+                    android:id="@+id/bSend5"
+                    android:layout_width="53dp"
+                    android:layout_height="47dp"
+                    android:visibility="gone"
+                    android:layout_marginEnd="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="Send"
+                    android:textSize="7dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName4" />
+
+                <EditText
+                    android:id="@+id/edMessage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/message"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/dark"
+                    android:textColorHint="@color/purple_501"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/bSend"
+                    app:layout_constraintEnd_toEndOf="@+id/bSend"
+                    app:layout_constraintStart_toStartOf="@+id/bSend"
+                    app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName2"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcView"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="100dp"
+                    app:layout_constraintBottom_toTopOf="@+id/edMessage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="0dp"
+                    android:layout_height="70dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/blue"
+                    android:text="Сканировать вишлист друга"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="0dp"
+                    android:layout_height="383dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/cheer" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@color/blue"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hint"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/yellow"
+                    android:ems="10"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:hint="@string/hint"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bt" />
+
+                <EditText
+                    android:id="@+id/editTextTextPersonName4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/orange"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:hint="@string/hint"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.502"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
+                <Button
+                    android:id="@+id/editTextTextPersonName5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:backgroundTint="@color/dark_pink"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:text="Сгенерировать QR-код"
+                    android:textColorHint="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+                <EditText
+                    android:id="@+id/bt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/green"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hint"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+                <EditText
+                    android:id="@+id/bt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/lgh_green"
+                    android:ems="10"
+                    android:gravity="center"
+                    android:hint="@string/hint"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bt2" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="120dp"
+                    android:gravity="center"
+                    android:text="Мой вишлист:"
+                    android:textColor="@color/dark"
+                    android:textSize="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="0dp"
+                    android:layout_height="464dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4"
+                    app:srcCompat="@drawable/back" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
