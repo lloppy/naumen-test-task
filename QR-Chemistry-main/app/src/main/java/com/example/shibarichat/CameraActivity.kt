@@ -44,7 +44,7 @@ class CameraActivity : AppCompatActivity(), ZBarScannerView.ResultHandler {
             builder.setCancelable(false)
                 .setMessage("${result?.contents}")
                 .setPositiveButton(
-                    "Выполнять!"
+                    "Готово!"
                 ) { dialog, id -> startActivity(Intent(this, MainActivity::class.java)) }
             val alert = builder.create()
             alert.show()

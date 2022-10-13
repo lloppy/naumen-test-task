@@ -8,4 +8,6 @@
     <string name="sign">Чтобы продолжить, войдите в систему</string>
     <string name="msg">Для корректной работы приложения необходимо дать разрешение на использование камеры</string>
     <string name="hint">название или ссылка </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

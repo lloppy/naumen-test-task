@@ -4,4 +4,8 @@
     <item
         android:title="Сохранить"
         android:id="@+id/save"/>
+
+    <item
+        android:title="Поделиться"
+        android:id="@+id/share"/>
 </menu>

@@ -1,6 +1,8 @@
 package com.example.shibarichat
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -18,15 +20,16 @@ import com.google.firebase.ktx.Firebase
 import java.util.*
 import kotlin.collections.ArrayList
 
+
 class ItemActivity : AppCompatActivity(){
     lateinit var data: ArrayList<Item>
     lateinit var binding: ActivityMainBinding
     lateinit var auth: FirebaseAuth
-    lateinit var adapter: UserAdapter
     lateinit var name: String
 
     lateinit var database: FirebaseDatabase
     lateinit var myRef: DatabaseReference
+    lateinit var allDataValues: ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +44,10 @@ class ItemActivity : AppCompatActivity(){
         val priceInput = findViewById<EditText>(R.id.price)
         val linkInput = findViewById<EditText>(R.id.link)
         val wishRv = findViewById<RecyclerView>(R.id.wishRv)
-        data = ArrayList()
 
+        data = ArrayList()
         loadDataFromFirebase()
+        allDataValues = ArrayList()
 
         var adapter = WishlistAdapter(data)
         wishRv.adapter = adapter
@@ -60,8 +64,6 @@ class ItemActivity : AppCompatActivity(){
             clearEditText(priceInput)
             clearEditText(linkInput)
         }
-
-
     }
 
     private fun loadDataFromFirebase() {
@@ -75,6 +77,7 @@ class ItemActivity : AppCompatActivity(){
                     val priceFb = dataSnapshot.child("price").value.toString()
 
                     data.add(Item(nameFb, priceFb, linkFb))
+                    allDataValues.add("$nameFb за $priceFb. Ссылка: $linkFb")
                 }
             }
             override fun onCancelled(error: DatabaseError) {}
@@ -90,6 +93,26 @@ class ItemActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.save) {
             writeDataToFirebase()
+        }
+        if (item.itemId == R.id.share){
+
+            val value = data.toString()
+            val name = name.toString()
+            val array = allDataValues
+
+            var link = ""
+
+            for (arr in array){
+                link += arr + "\n"
+            }
+
+            val i = Intent(this@ItemActivity, QRActivity::class.java)
+            i.putExtra("key", value)
+            i.putExtra("name", name)
+            i.putExtra("array", link)
+
+            Log.e("data", data.toString())
+            startActivity(i)
         }
         return super.onOptionsItemSelected(item)
     }
