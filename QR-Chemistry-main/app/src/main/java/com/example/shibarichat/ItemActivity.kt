@@ -71,6 +71,7 @@ class ItemActivity : AppCompatActivity(){
 
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                allDataValues.clear()
                 for (dataSnapshot in snapshot.children) {
                     val nameFb = dataSnapshot.child("name").value.toString()
                     val linkFb = dataSnapshot.child("link").value.toString()

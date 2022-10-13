@@ -123,7 +123,6 @@ class MainActivity : AppCompatActivity() {
                 adapter.submitList(list)
                 Log.i("firebase", "$list")
             }
-
             override fun onCancelled(error: DatabaseError) {
             }
         })
