@@ -6,4 +6,4 @@
 
 [Download apk](https://drive.google.com/drive/folders/12Sn_hojK2dV_H4PtJF1hk7kz1oy4nD9a?hl=ru)
 
-![Иллюстрация к проекту](https://github.com/lloppy/naumen-test-task/naumen.png)
+![Иллюстрация к проекту](https://github.com/lloppy/naumen-test-task/blob/main/naumen.png)
