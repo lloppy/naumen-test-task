@@ -1,27 +1,18 @@
 package com.example.shibarichat
 
-import android.Manifest
-import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Message
-import android.text.Editable
-import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shibarichat.Item
 import com.example.shibarichat.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import java.util.*
@@ -32,7 +23,6 @@ class ItemActivity : AppCompatActivity(){
     lateinit var binding: ActivityMainBinding
     lateinit var auth: FirebaseAuth
     lateinit var adapter: UserAdapter
-    private val PERMISSION_REQUEST_CODE = 200
     lateinit var name: String
 
     lateinit var database: FirebaseDatabase
@@ -53,41 +43,65 @@ class ItemActivity : AppCompatActivity(){
         val wishRv = findViewById<RecyclerView>(R.id.wishRv)
         data = ArrayList()
 
+        loadDataFromFirebase()
+
         var adapter = WishlistAdapter(data)
         wishRv.adapter = adapter
         wishRv.layoutManager = LinearLayoutManager(this)
 
         button.setOnClickListener {
-            data.add(Item(nameInput.text.toString(), priceInput.text.toString() + " руб", linkInput.text.toString()))
-            adapter.notifyItemInserted(index)
+
+            data.add(Item(nameInput.text.toString(), priceInput.text.toString(), linkInput.text.toString()))
 
             index++
-
-            database = Firebase.database
-            myRef = database.getReference(name)
-            myRef.child(myRef.push().key ?: "blablabla")
-                .setValue(Item(nameInput.text.toString(), priceInput.text.toString(), linkInput.text.toString()))
-
-//            if (index >= 5) {
-//                button.isInvisible = true
-//                Toast.makeText(
-//                    this,
-//                    "Вишлист составлен",
-//                    Toast.LENGTH_LONG
-//                ).show()
-//            }
-            
-            Toast.makeText(
-                this,
-                "Добавлено",
-                Toast.LENGTH_LONG
-            ).show()
+            Toast.makeText(this, "Добавлено\nОбязательно сохраните свой список!", Toast.LENGTH_LONG).show()
 
             clearEditText(nameInput)
             clearEditText(priceInput)
             clearEditText(linkInput)
         }
+
+
     }
+
+    private fun loadDataFromFirebase() {
+        val reference = FirebaseDatabase.getInstance().reference.child(name)
+
+        reference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val nameFb = dataSnapshot.child("name").value.toString()
+                    val linkFb = dataSnapshot.child("link").value.toString()
+                    val priceFb = dataSnapshot.child("price").value.toString()
+
+                    data.add(Item(nameFb, priceFb, linkFb))
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.item_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.save) {
+            writeDataToFirebase()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    private fun writeDataToFirebase() {
+        database = Firebase.database
+        myRef = database.getReference(name)
+        myRef.setValue(data)
+
+        Toast.makeText(this, "Сохранено", Toast.LENGTH_LONG).show()
+    }
+
     private fun clearEditText(edMessage: EditText) {
         edMessage.setText("")
     }

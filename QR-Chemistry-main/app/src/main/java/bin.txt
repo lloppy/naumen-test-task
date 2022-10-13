@@ -9,6 +9,15 @@
 
 
 
+
+
+
+
+
+
+
+обновление значений
+
     private fun loadData(linkInput: EditText, nameInput: EditText, priceInput: EditText ) {
         val database2 = Firebase.database
         val myRef2 = database2.getReference(name)
@@ -31,3 +40,71 @@
                 data.add(Item(link, price + " руб", nammed.toString()))
 
             }
+
+
+            database.getReference(name).get().addOnSuccessListener {
+
+                    }
+
+                                                val countElem = snapshot.value.toString().filter { it == '{' }.length.toString()
+for (dataSnapshot in snapshot.children) {
+                    val nameFb = dataSnapshot.child("name").value.toString()
+                    val linkFb = dataSnapshot.child("link").value.toString()
+                    val priceFb = dataSnapshot.child("price").value.toString()
+
+                    data.add(Item(nameFb, priceFb + " руб", linkFb))
+                }
+
+
+for ( i in 0 .. 1) {
+            val nameFb = reference.child(i.toString()).get().toString()
+            val linkFb = reference.child(i.toString()).child("link").get().toString()
+            val priceFb = reference.child(i.toString()).child("price").get().toString()
+
+            data.add(Item(nameFb, priceFb + " руб", linkFb))
+        }
+
+                //links
+                 val nameFb = reference.child(i.toString()).child("name").get().toString()
+                                 val linkFb = reference.child(i.toString()).child("link").get().toString()
+                                 val priceFb = reference.child(i.toString()).child("price").get().toString()
+
+
+
+                                 yRef.child(name).
+                                         val reference = FirebaseDatabase.getInstance().reference.child(name).get().addOnSuccessListener {
+                                             for ( i in 0 .. 2) {
+                                                 var path = i.toString()
+                                                 val nameFb = it.child(path).child("name").value.toString()
+                                                 val linkFb = it.child(path).child("link").value.toString()
+                                                 val priceFb = it.child(path).child("price").value.toString()
+
+                                                 data.add(Item(nameFb, priceFb + " руб", linkFb))
+                                             }
+                                         }.addOnFailureListener{
+                                             Log.e("firebase", "Error getting data", it)
+
+                                         }
+
+
+
+
+
+
+
+                                         for ( i in 1 ..mx) {
+
+                                                     val reference = FirebaseDatabase.getInstance().reference.child(name).child(i.toString()).get().addOnSuccessListener {
+                                                         val nameFb = it.child("name").value.toString()
+                                                         val linkFb = it.child("link").value.toString()
+                                                         val priceFb = it.child("price").value.toString()
+
+                                                         data.add(Item(nameFb, priceFb + " руб", linkFb))
+
+                                                         mx +=1
+                                                         Log.e("firebase", data.toString())
+
+
+                                                     }.addOnFailureListener{
+                                                         Log.e("firebase", "Error getting data", it)
+                                                     }
